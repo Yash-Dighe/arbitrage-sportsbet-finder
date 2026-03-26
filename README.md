@@ -30,3 +30,30 @@ The `-c` or `--cutoff` sets a minimum profit margin while searching for arbitrag
 
 ### Help
 The `-h` or `--help` flags will help you!
+
+## Basic UI
+If you'd rather not type CLI flags, launch the desktop UI:
+
+    python ui.py
+
+The UI lets you switch between `sportsbook` and `prediction` engines, fill in the same settings as the CLI, and view the returned opportunities in a scrollable results panel.
+
+### Prediction Market Engine (Orderbook-based)
+Use `prediction_math.py` with Kalshi/Polymarket orderbooks:
+
+    python main.py --engine prediction --prediction-source all
+
+Provider selection:
+
+    python main.py --engine prediction --prediction-source kalshi
+    python main.py --engine prediction --prediction-source polymarket
+
+Thresholds:
+
+    python main.py --engine prediction --prediction-min-edge 2.0 --prediction-min-profit-per-contract 0.01
+
+Optional provider URLs via environment variables:
+
+- `KALSHI_BASE_URL` (default: `https://api.elections.kalshi.com`)
+- `POLYMARKET_GAMMA_URL` (default: `https://gamma-api.polymarket.com`)
+- `POLYMARKET_CLOB_URL` (default: `https://clob.polymarket.com`)
